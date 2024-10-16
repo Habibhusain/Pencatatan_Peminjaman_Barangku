@@ -1,0 +1,323 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar-header {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    font-size: 24px;
+}
+
+
+/* Container */
+.container {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #4CAF50; /* Tambahan border hijau */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Gaya untuk Container Judul */
+.container-judul {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 15px;
+    border-radius: 5px; 
+    text-align: center; 
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+}
+
+.container-judul h2 {
+    font-size: 27px; 
+    margin-bottom: 10px; 
+}
+
+.container-judul a {
+    display: inline-block; 
+    background-color: #19d3a4; 
+    color: white;
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+
+.container-judul a:hover {
+    background-color: #074d3b ; 
+}
+
+/* Table */
+.table {
+    margin-top: 20px;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse; /* Pastikan border tidak ganda */
+}
+
+.table th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd; 
+}
+
+.table th {
+    background: #f2f2f2;
+}
+
+/* Tambahan untuk border yang lebih tegas */
+.table th {
+    border-bottom: 2px solid #4CAF50; 
+}
+
+.table td {
+    border-bottom: 1px solid #ddd; 
+}
+
+.table img {
+    max-width: 100px;
+    height: auto;
+}
+
+
+/* Button */
+.table a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #00ff08;
+    border-radius: 10px;
+
+}
+.table td:last-child a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #f70505;
+    border-radius: 10px;
+}
+.table a:hover {
+    background-color: #157718;
+}
+.table td:last-child a:hover {
+    background-color: #e01515;
+}
+/* Form Box */
+.box-judul {
+    background-color: #19d3a4; 
+    color: white; 
+    padding: 20px; 
+    text-align: center; 
+    border-radius: 5px; 
+    margin: 20px auto;
+    width: 90%;
+}
+
+.box {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gaya Formulir */
+.box-1 label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.box-1 input[type="text"],
+.box-1 input[type="date"],
+.box-1 input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.box-1 input[type="submit"] {
+    background-color: #19d3a4; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.button-container {
+    display: flex;      
+    justify-content: center;
+    margin-top: 20px;         
+}
+
+.button-container input[type="submit"],
+.button-container a {
+    margin: 0 10px;          
+}
+
+/* Gaya untuk tombol kembali */
+.button-container a {
+    display: inline-block; 
+    background-color: #5eda0c; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+
+.button-container input:hover {
+    background-color: #00515f; 
+}
+.button-container a:hover {
+    background-color: #154709; 
+}
+/* Form edit */
+.content-judul {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 20px; 
+    text-align: center; 
+    border-radius: 5px; 
+    margin: 20px auto;
+    width: 90%;
+}
+
+.content {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gaya Formulir */
+.content-1 label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.content-1 input[type="text"],
+.content-1 input[type="date"],
+.content-1 input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.content-1 input[type="submit"] {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.button-content {
+    display: flex;      
+    justify-content: center;
+    margin-top: 20px;         
+}
+
+.button-content input[type="submit"],
+.button-content a {
+    margin: 0 10px;          
+}
+
+/* Gaya untuk tombol kembali */
+.button-content a {
+    display: inline-block; 
+    background-color: #19d3a4; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+.button-content input:hover {
+    background-color: #0bfc03; 
+}
+.button-content a:hover {
+    background-color: #109c8a; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    img {
+        max-width: 50px; /* Smaller image for mobile */
+    }
+    .table th, .table td {
+        padding: 4px; /* Mengurangi padding di tampilan mobile */
+    }
+    .table a {
+        padding: 4px 8px; /* Mengurangi padding di tampilan mobile */
+    }
+    .table td:last-child a {
+        padding: 4px 8px; /* Mengurangi padding di tampilan mobile */
+    }
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
