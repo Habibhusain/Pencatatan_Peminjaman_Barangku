@@ -25,6 +25,7 @@ function buat_table() {
     nama_peminjam TEXT NOT NULL,
     barang TEXT NOT NULL, 
     foto TEXT NOT NULL, 
+    sudah_belum TEXT NOT NULL, 
     tanggal TEXT NOT NULL )");
 
     if (!$table) {

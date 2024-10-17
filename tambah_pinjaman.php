@@ -8,9 +8,10 @@ if(isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] !='')
     $nama_peminjam = $_POST['nama_peminjam'];
     $barang = $_POST['barang'];
     $foto = upload_pinjaman_barang();
+    $sudah_belum = $_POST['sudah_belum'];
     $tanggal = $_POST['tanggal'];
 
-    $tambah_peminjam = tambah_pinjaman_barang($nama_peminjam, $barang, $foto, $tanggal);
+    $tambah_peminjam = tambah_pinjaman_barang($nama_peminjam, $barang, $foto, $sudah_belum, $tanggal);
     
     if($tambah_peminjam)
     {
@@ -50,6 +51,7 @@ if(isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] !='')
                 <input type="text" name="barang" required>
                 <label>Foto bukti</label>
                 <input type="file" name="foto" required>
+                <input type="text" name="sudah_belum" hidden value="Belum dikembalikan" required>
                 <label>Tanggal</label>
                 <input type="date" name="tanggal" required>
                 <div class="button-container">

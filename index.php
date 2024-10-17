@@ -36,6 +36,7 @@ require "functions.php";
                         <th>Nama Peminjam</th>
                         <th>Barang</th>
                         <th>Foto Bukti</th>
+                        <th>Sudah/Belum</th>
                         <th colspan=2>Aksi</th>
                     </tr>
                 </thead>
@@ -51,6 +52,7 @@ require "functions.php";
                         <td><?php echo $row['nama_peminjam']; ?></td>
                         <td><?php echo $row['barang']; ?></td>
                         <td><img src="image/<?php echo $row['foto']; ?>" alt="Foto Bukti"></td>
+                        <td><?php echo $row['sudah_belum']; ?></td>
                         <td><a href="edit_pinjaman.php?id=<?php echo $row['id']; ?>">Edit</a></td>
                         <td><a href="hapus_pinjaman.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin Mau Hapus Data Pinjaman Ini???')">Hapus</a></td>
                     </tr>

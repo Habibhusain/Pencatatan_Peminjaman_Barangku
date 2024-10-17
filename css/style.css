@@ -164,6 +164,13 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+.box-1 select{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 .box-1 input[type="submit"] {
     background-color: #19d3a4; 
@@ -277,9 +284,60 @@ body {
 .button-content a:hover {
     background-color: #109c8a; 
 }
+/* Gaya untuk elemen select */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    appearance: none; /* Hilangkan panah default di beberapa browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover {
+    border-color: #4CAF50;
+}
+
+select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+/* Gaya untuk elemen option */
+option {
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Untuk mengatur tampilan panah di bagian select */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: '▼'; /* Custom arrow */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #4CAF50;
+}
+
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -287,26 +345,28 @@ body {
     h1 {
         font-size: 20px;
     }
-
+    select {
+        font-size: 12px;
+    }
     .container {
         width: 95%;
     }
 
     table {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     img {
-        max-width: 50px; /* Smaller image for mobile */
+        max-width: 40px; /* Smaller image for mobile */
     }
     .table th, .table td {
-        padding: 4px; /* Mengurangi padding di tampilan mobile */
+        padding: 3px; /* Mengurangi padding di tampilan mobile */
     }
     .table a {
-        padding: 4px 8px; /* Mengurangi padding di tampilan mobile */
+        padding: 3px 6px; /* Mengurangi padding di tampilan mobile */
     }
     .table td:last-child a {
-        padding: 4px 8px; /* Mengurangi padding di tampilan mobile */
+        padding: 3px 6px; /* Mengurangi padding di tampilan mobile */
     }
 }
 
