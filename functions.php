@@ -7,18 +7,17 @@ DEFINE("TABLE_PEMINJAMAN", "peminjaman_barang");
 
 // Fungsi untuk menampilkan data pinjaman barang
 function tampil_pinjaman_barang() {
-    $db = database();
 
     $tampil_pinjaman_barang = "SELECT * FROM " . TABLE_PEMINJAMAN;
-    $tampil_pinjaman = $db->prepare($tampil_pinjaman_barang);
-    $tampil = $tampil_pinjaman->execute();
+    $tampil_pinjaman = database()->query($tampil_pinjaman_barang);
 
-    $pinjaman_barang = [];
-    while ($row = $tampil->fetchArray()) { 
-        $pinjaman_barang[] = $row;
+    $tampil = [];
+    while($row = $tampil_pinjaman->fetchArray())
+    {
+        $tampil[]=$row;
     }
 
-    return $pinjaman_barang;
+    return $tampil;
 }
 
 // Fungsi untuk mengunggah file foto
@@ -54,73 +53,38 @@ function upload_pinjaman_barang() {
 
 // Fungsi untuk menambah pinjaman barang
 function tambah_pinjaman_barang($nama_peminjam, $barang, $foto,$sudah_belum, $tanggal) {
-    $db = database();
 
-    $tambah_pinjaman_barang = "INSERT INTO " . TABLE_PEMINJAMAN . " (nama_peminjam, barang, foto,sudah_belum, tanggal) VALUES (:nama_peminjam, :barang, :foto, :sudah_belum, :tanggal)";
-    $tambah_pinjaman = $db->prepare($tambah_pinjaman_barang);
+    $tambah_pinjaman_barang = "INSERT INTO " . TABLE_PEMINJAMAN . " (nama_peminjam, barang, foto,sudah_belum, tanggal) VALUES ('$nama_peminjam', '$barang', '$foto', '$sudah_belum', '$tanggal')";
+    $tambah_pinjaman = database()->query($tambah_pinjaman_barang);
+   
 
-    // Mengikat nilai ke parameter
-    $tambah_pinjaman->bindValue(':nama_peminjam', $nama_peminjam);
-    $tambah_pinjaman->bindValue(':barang', $barang);
-    $tambah_pinjaman->bindValue(':foto', $foto);
-    $tambah_pinjaman->bindValue(':sudah_belum', $sudah_belum);
-    $tambah_pinjaman->bindValue(':tanggal', $tanggal);
-
-    return $tambah_pinjaman->execute();
+    return $tambah_pinjaman;
 }
 
 // Fungsi untuk memperbarui data pinjaman barang
-function update_pinjaman_barang($get_id, $get_nama_peminjam, $get_barang, $get_foto,$get_sudah_belum, $get_tanggal) {
-    $db = database();
-
-     // Ambil data pinjaman sebelumnya
-     $existing_data = ambil_pinjaman_barang($get_id);
-
-     // Cek apakah ada gambar baru yang diunggah
-     if ($_FILES['foto']['error'] == UPLOAD_ERR_NO_FILE) {
-         // Jika tidak ada file baru yang diunggah, gunakan gambar lama
-         $get_foto = $existing_data['foto'];
-     } else {
-         // Jika ada gambar baru, unggah dan ganti dengan yang baru
-         $get_foto = upload_pinjaman_barang();
-         if (!$get_foto) {
-             echo "Gagal mengunggah foto.";
-             exit();
-         }
-     }
+function update_pinjaman_barang($get_id, $nama_peminjam, $barang, $foto,$sudah_belum, $tanggal) {
      
-    $update_pinjaman_barang = "UPDATE " . TABLE_PEMINJAMAN . " SET nama_peminjam = :nama_peminjam, barang = :barang, foto = :foto, sudah_belum = :sudah_belum, tanggal = :tanggal WHERE id = :id";
-    $update_pinjaman = $db->prepare($update_pinjaman_barang);
+    $update_pinjaman_barang = "UPDATE " . TABLE_PEMINJAMAN . " SET nama_peminjam = '$nama_peminjam', barang = '$barang', foto = '$foto', sudah_belum = '$sudah_belum', tanggal = '$tanggal' WHERE id = '$get_id'";
+    $update_pinjaman = database()->query($update_pinjaman_barang);
 
-    $update_pinjaman->bindValue(':nama_peminjam', $get_nama_peminjam);
-    $update_pinjaman->bindValue(':barang', $get_barang);
-    $update_pinjaman->bindValue(':foto', $get_foto);
-    $update_pinjaman->bindValue(':sudah_belum', $get_sudah_belum);
-    $update_pinjaman->bindValue(':tanggal', $get_tanggal);
-    $update_pinjaman->bindValue(':id', $get_id);
-
-    return $update_pinjaman->execute();
+    return $update_pinjaman;
 }
 
 // Fungsi untuk mengambil data pinjaman barang berdasarkan ID
 function ambil_pinjaman_barang($get_id) {
-    $db = database();
 
-    $ambil_pinjaman_barang = "SELECT * FROM " . TABLE_PEMINJAMAN . " WHERE id = :id";
-    $ambil_pinjaman = $db->prepare($ambil_pinjaman_barang);
-    $ambil_pinjaman->bindValue(':id', $get_id);
+    $ambil_pinjaman_barang = "SELECT * FROM " . TABLE_PEMINJAMAN . " WHERE id = '$get_id'";
+    $ambil_pinjaman = database()->query($ambil_pinjaman_barang);
 
-    $result = $ambil_pinjaman->execute();
+    $result = $ambil_pinjaman;
     return $result->fetchArray();
 }
 
 // Fungsi untuk menghapus data pinjaman barang
 function delete_pinjaman($get_id) {
-    $db = database();
 
-    $delete_pinjaman_barang = "DELETE FROM " . TABLE_PEMINJAMAN . " WHERE id = :id";
-    $delete_pinjaman = $db->prepare($delete_pinjaman_barang);
-    $delete_pinjaman->bindValue(':id', $get_id);
+    $delete_pinjaman_barang = "DELETE FROM " . TABLE_PEMINJAMAN . " WHERE id = '$get_id'";
+    $delete_pinjaman = database()->query($delete_pinjaman_barang);
 
-    return $delete_pinjaman->execute();
+    return $delete_pinjaman;
 }

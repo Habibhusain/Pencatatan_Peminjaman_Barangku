@@ -8,25 +8,16 @@ $get_id = $_GET['id'];
 $pinjaman = ambil_pinjaman_barang($get_id);
 
 if (isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] != '') {
-    $get_nama_peminjam = $_POST['nama_peminjam'];
-    $get_barang = $_POST['barang'];
-    $get_foto = $pinjaman['foto']; // Gunakan foto lama sebagai default
-
-    // Jika ada file yang diunggah, lakukan pengunggahan
-    if ($_FILES['foto']['error'] != UPLOAD_ERR_NO_FILE) {
-        $upload_foto = upload_pinjaman_barang();
-        if ($upload_foto) {
-            $get_foto = $upload_foto; // Ganti foto lama dengan yang baru jika ada
-        }
-    }
-
+    $nama_peminjam = $_POST['nama_peminjam'];
+    $barang = $_POST['barang'];
+    $foto = upload_pinjaman_barang();
     // Pengecekan apakah variabel 'sudah_belum' di POST
-    $get_sudah_belum = isset($_POST['sudah_belum']) ? $_POST['sudah_belum'] : $pinjaman['sudah_belum'];
+    $sudah_belum = isset($_POST['sudah_belum']) ? $_POST['sudah_belum'] : $pinjaman['sudah_belum'];
 
-    $get_tanggal = $_POST['tanggal'];
+    $tanggal = $_POST['tanggal'];
 
     // Update data pinjaman
-    $update = update_pinjaman_barang($get_id, $get_nama_peminjam, $get_barang, $get_foto, $get_sudah_belum, $get_tanggal);
+    $update = update_pinjaman_barang($get_id, $nama_peminjam, $barang, $foto, $sudah_belum, $tanggal);
 
     if ($update) {
         echo "<script>
@@ -63,12 +54,11 @@ if (isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] != '') {
                 <input type="text" name="barang" value="<?php echo $pinjaman['barang']; ?>" required>
                 <img src="image/<?php echo $pinjaman['foto']; ?>" alt="Foto Bukti" width="100">
                 <input type="file" name="foto">
-                <small>Biarkan kosong jika tidak ingin mengganti foto</small>
                 <label>Sudah/Belum dikembalikan</label>
                 <div class="select-wrapper">
                     <select name="sudah_belum">
-                        <option value="Sudah dikembalikan" <?php echo ($pinjaman['sudah_belum'] == 'Sudah dikembalikan') ? 'selected' : ''; ?>>Sudah dikembalikan</option>
                         <option value="Belum dikembalikan" <?php echo ($pinjaman['sudah_belum'] == 'Belum dikembalikan') ? 'selected' : ''; ?>>Belum dikembalikan</option>
+                        <option value="Sudah dikembalikan" <?php echo ($pinjaman['sudah_belum'] == 'Sudah dikembalikan') ? 'selected' : ''; ?>>Sudah dikembalikan</option>
                     </select>
                 </div>
                 <label>Tanggal</label>
