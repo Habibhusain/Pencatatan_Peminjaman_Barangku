@@ -1,10 +1,7 @@
 <?php
-
 require "functions.php";
 
-
-if(isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] !='')
-{
+if (isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] !='') {
     $nama_peminjam = $_POST['nama_peminjam'];
     $barang = $_POST['barang'];
     $foto = upload_pinjaman_barang();
@@ -13,21 +10,18 @@ if(isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] !='')
 
     $tambah_peminjam = tambah_pinjaman_barang($nama_peminjam, $barang, $foto, $sudah_belum, $tanggal);
     
-    if($tambah_peminjam)
-    {
+    if ($tambah_peminjam) {
         echo "<script>
         alert('Data Berhasil di Tambah');
         window.location='index.php';
         </script>";
-    }else{
+    } else {
         echo "<script>
         alert('Data Gagal di Tambah');
         window.location='tambah_pinjaman.php';
         </script>";
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,5 @@
 <?php
-
 require "functions.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +42,7 @@ require "functions.php";
                     <?php 
                     $tampil = tampil_pinjaman_barang();
                     $no=1;
-                    foreach($tampil as $row):
+                    foreach ($tampil as $row):
                     ?>
                     <tr>
                         <td><?php echo $no; ?></td>

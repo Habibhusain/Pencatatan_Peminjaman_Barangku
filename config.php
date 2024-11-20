@@ -1,5 +1,4 @@
 <?php
-
 // Mendefinisikan konstanta untuk nama database
 DEFINE("DB_ADD", "db_pinjaman.sqlite");
 

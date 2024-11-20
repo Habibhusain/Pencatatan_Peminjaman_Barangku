@@ -1,5 +1,4 @@
 <?php
-
 require "functions.php";
 
 $get_id = $_GET['id'];
@@ -8,6 +7,7 @@ $get_id = $_GET['id'];
 $pinjaman = ambil_pinjaman_barang($get_id);
 
 if (isset($_POST['nama_peminjam']) && $_POST['nama_peminjam'] != '') {
+    
     $nama_peminjam = $_POST['nama_peminjam'];
     $barang = $_POST['barang'];
     $foto = upload_pinjaman_barang();

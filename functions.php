@@ -1,5 +1,4 @@
 <?php
-
 require "config.php";
 
 // Define table name
@@ -12,8 +11,7 @@ function tampil_pinjaman_barang() {
     $tampil_pinjaman = database()->query($tampil_pinjaman_barang);
 
     $tampil = [];
-    while($row = $tampil_pinjaman->fetchArray())
-    {
+    while($row = $tampil_pinjaman->fetchArray()) {
         $tampil[]=$row;
     }
 
@@ -27,7 +25,6 @@ function upload_pinjaman_barang() {
 
     if ($ambil_ukuran_file > $ukuran_diizinkan) {
         echo 'Ukuran file maksimal 10 MB!';
-        exit();
     }
 
     $ambil_nama_file = $_FILES['foto']['name'];
